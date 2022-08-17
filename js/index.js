@@ -1,13 +1,13 @@
+/* Creating an array of objects. */
+let admins=[
+    {
+        user:'admin',
+        pass:'admin123'
+    }];
+
 
 /* Creating an array of objects. */
-let admins=[{user:'admin',pass:'admin123'}];
-
-
-
-
-
-/* Creating an array of objects. */
-const alumnos=[
+let alumnos=[
     {
         user:'pepe1',
         pass:'pepe1',
@@ -19,10 +19,9 @@ const alumnos=[
         matters:[{name:'matematica',note:6.20},/*{name:'lengua',note:6.7}*/]
     }];
 
-/**
- * It checks if the username and password are in the admins or users array, and if they are, it
- * redirects to the appropriate page.
- */
+
+
+
 const login = () =>{
     let username = document.querySelector(".user").value; 
     let password = document.querySelector(".pass").value;
@@ -56,8 +55,12 @@ const createUser = () =>{
     let correoUser = document.querySelector('.correo').value        
     let userUser = document.querySelector('.usuario').value
     let passUser = document.querySelector('.contraseña').value
-    alumno.push({user:userUser, pass:passUser, name:nameUser,dni:dniUser, curso:cursoUser, telefono:telefonoUser, correo:correoUser})
-    alert('Alumno creado')
+    if(nameUser.length === 0 || dniUser.length === 0 || cursoUser.length === 0 ||telefonoUser.length === 0 ||correoUser.length === 0 ||userUser.length === 0 ||passUser.length === 0){
+        alert('Por Favor complete todos los campos')
+    }else{
+        alumnos.push({user:userUser, pass:passUser, name:nameUser,dni:dniUser, curso:cursoUser, telefono:telefonoUser, correo:correoUser})
+        alert('Alumno Creado')
+    }
 }
 
 
@@ -67,6 +70,7 @@ const createUser = () =>{
  * matterDivision and pushes them into the matters array as an object with the keys names and
  * divisions.
  */
+
 const createMatter = () =>{
     let matterName = document.querySelector('.matterName').value
     let matterDivision = document.querySelector('.matterDivision').value

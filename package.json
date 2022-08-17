@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-    
   },
   "keywords": [],
   "author": "Toledo-Camejo",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
+    "mysql": "^2.18.1",
     "node": "^17.7.2",
     "nodemon": "^2.0.16"
   }
