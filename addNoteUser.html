@@ -6,10 +6,34 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="/styles/addNoteUser.css">
     </head>
     <body>
-        
-        <script src="" async defer></script>
+        <div class="cuadroBlanco">
+            <section class="buttonBack">
+                <a href="/homeAdmin.html">
+                    <button class="backMenu" type="button">Regresar al Menu</button>    
+                </a>
+            </section>
+            <section class="buttonSend">
+                <button class="sendButton" type="button" onclick='addNoteForAlumno()'>Agregar Nota</button>
+            </section>
+            <form action="" class="formulario">
+                <h4>NOMBRE Y APELLIDO</h4>
+                <input  required type="text" class="nombre" placeholder="Nombre del Alumno">
+                <h4>DNI</h4>
+                <input   type="text" class="dni" placeholder="DNI del Alumno" required>
+                <h4>CURSO</h4>
+                <input   type="text" class="curso" placeholder="Curso del Alumno" required>
+                <h4>TELEFONO</h4>
+                <input   type="text" class="telefono" placeholder="Telefono del Alumno/Padres" required>
+                <h4>CORREO</h4>
+                <input   type="text" class="correo" placeholder="Correo del Alumno" required>
+    
+            </form>
+        </div>
+        <script src="/js/index.js"></script>
     </body>
+    
+
 </html> 
