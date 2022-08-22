@@ -1,0 +1,89 @@
+body{
+    background:linear-gradient(100deg, #0700B8 0%, #00FF88 100%);;
+    color:black;
+    margin-bottom:50%;
+    /* display:grid;
+    grid-template-rows: 50%;
+    grid-template-columns: 100%; */
+    font-family:'roboto';
+    overflow:hidden;
+    /* overflow-x:hidden; */
+    /* overflow-y:hidden; */
+}
+
+.cuadroBlanco{
+
+    display:grid;
+    grid-template-columns: -0.5rem;
+    grid-template-rows: 4%;
+    border-radius: 50px;
+    background: #ffffff;
+    /* box-shadow:  35px 35px 70px #525252,
+                -35px -35px 70px #ffffff; */
+    margin:1.5% 3% 3% 3%;
+    padding-top:0%;
+    padding-left:10%;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    grid-row: 1;
+    grid-column:1;
+}
+
+h4{
+    margin-top:2%;
+    margin-bottom:1%;
+}
+.formulario{
+    grid-row: 1;
+    grid-column:2;
+    margin-top:3%;
+}
+
+.buttonBack{
+    grid-column:1;
+    grid-row: 1;
+    margin-left: -45%;
+}
+
+.buttonSend{
+    grid-column:1;
+    grid-row: 2;
+    margin-left:-45%;
+    margin-top: 10%;
+}
+
+.adminButton{
+    grid-column:1;
+    margin-top: -160px;
+    
+}
+
+.backMenu, .sendButton {
+    margin: 8% 0% 10% 20%;
+    padding: 1.3em 3em;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+  
+  button:hover {
+    background-color: #00ffc8 ;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }
+  
+  button:active {
+    transform: translateY(-1px);
+  }
+
+
