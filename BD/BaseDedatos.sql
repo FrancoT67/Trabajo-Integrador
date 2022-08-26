@@ -1,8 +1,8 @@
-DROP DATABASE IF exists CamejoToledo;
+DROP DATABASE IF exists prueba;
 
-CREATE DATABASE CamejoToledo;
+CREATE DATABASE prueba;
 
-USE CamejoToledo;
+USE prueba;
 
 create table materias(
 nombreM VARCHAR(255),
