@@ -16,7 +16,7 @@ let alumnos=[
         curso:'5A',
         telefono:'0658145',
         correo:'pepe1@gmail.com',
-        matters:[{name:'matematica',note:6.20},/*{name:'lengua',note:6.7}*/]
+        matters:[{name:'matematica',note:6.20,state:'Aprobado'},{name:'lengua',note:5.7,state:'Desaprobado'}]
     }];
 
 
@@ -89,7 +89,11 @@ const addNoteForAlumno = () =>{
     let matter = document.querySelector('.matterName').value;
     let note = document.querySelector('.matterNote').value;
     if((userDNI === alumnos.find(element => element === alumnos.dni))){
-        alumno.matters.push({matterName:matter,matterNote:note})
+        if(note >= 5.99){
+            alumno.matters.push({name:matter,note:note,state:'Aprobado'})
+        }else{
+            alumno.matters.push({name:matter,note:note,state:'Desaprobado'})
+        }
     }else{
         alert('datos incorrectos o alumno no existente')
     }
@@ -98,41 +102,57 @@ const addNoteForAlumno = () =>{
 
 
 /* mostrar todas las materias,si tiene 5.99 o menos Desaprobado(pintar en rojo)*/ 
-let nameMatter = document.querySelector('.nombre')
-let noteMatter= document.querySelector('.nota')
-let stateMatter= document.querySelector('.estado')
-let materias = document.querySelector('.materias')
-let divContenerdor = document.querySelector('.contenedorMaterias')
-const inspectMatter = () =>{
-    alumnos.forEach(alumno => {
-        alumno.matters.forEach(matter => {
-           if(matter.note<= 5.99){
-            materias.classList.add('materias','Desaprobado')
-            nameMatter.innerHTML = matter.name
-            noteMatter.innerHTML = matter.note
-            stateMatter.innerHTML = 'Desaprobado'
-           }else{
-            materias.classList.add('materias','Aprobado')
-            nameMatter.innerHTML = matter.name
-            noteMatter.innerHTML = matter.note
-            stateMatter.innerHTML = 'Aprobado'
-           }
-        })
-     }); 
-     //lo de arriba anda con una sola materias
-// lo de abajo le falta revisar mucho
-    // alumnos.forEach(alumno => {
-    //     alumno.matters.forEach(matter => {
-    //         const tr = document.createElement('tr')
-    //         const td = document.createElement('td')
-    //         divContenerdor.appendChild(tr)
-    //         tr.appendChild(td)
 
-    //     });
-        
-    // });
+const inspectMatter = () =>{
+    const libreta = document.querySelector('.libreta')
+    let Tr = document.createElement('tr');
+    let td = document.createElement('td');
+    for(let i=0;i<10;i++){
+        tr
+        Tr=td.innerHTML=`${i}`
+    }
+    libreta.innerHTML=`${Tr}`
+    
 
 }
+
+
+// const nameMatter = document.querySelector('.nombre')
+// const noteMatter= document.querySelector('.nota')
+// const stateMatter= document.querySelector('.estado')
+// const materias = document.querySelector('.materias')
+// const divContenerdor = document.querySelector('.contenedorMaterias')
+
+// const inspectMatter = () =>{
+//     alumnos.forEach(alumno => {
+//         alumno.matters.forEach(matter => {
+//            if(matter.note<= 5.99){
+//             materias.classList.add('materias','Desaprobado')
+//             nameMatter.innerHTML = matter.name
+//             noteMatter.innerHTML = matter.note
+//             stateMatter.innerHTML = 'Desaprobado'
+//            }else{
+//             materias.classList.add('materias','Aprobado')
+//             nameMatter.innerHTML = matter.name
+//             noteMatter.innerHTML = matter.note
+//             stateMatter.innerHTML = 'Aprobado'
+//            }
+//         })
+//      }); 
+//      //lo de arriba anda con una sola materias
+// // lo de abajo le falta revisar mucho
+//     // alumnos.forEach(alumno => {
+//     //     alumno.matters.forEach(matter => {
+//     //         const tr = document.createElement('tr')
+//     //         const td = document.createElement('td')
+//     //         divContenerdor.appendChild(tr)
+//     //         tr.appendChild(td)
+
+//     //     });
+        
+//     // });
+
+// }
 
 
 
@@ -174,4 +194,4 @@ const inspectMatter = () =>{
 
 
 
-
+ 

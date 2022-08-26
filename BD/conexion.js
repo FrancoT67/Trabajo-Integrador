@@ -1,15 +1,31 @@
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'dbuser',
-  password : 's3kreee7'
+  // host:'localhost',
+  // user:'root',
+  // database:'prueba',
+  // password:''
+  
+  
+  // host:'localhost',
+  // user:'root',
+  //database:'prueba',
+  // password:'falla'
+
+  
+  host: 'localhost',
+  database:'prueba',
+  user: 'bdII_7mo',
+  password: 'Septimo-2022'
+
 });
 
-connection.connect();
-
-connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
-  if (err) throw err;
-  console.log('The solution is: ', rows[0].solution);
+connection.connect(function(error){
+  if(error){
+    throw error;
+  }else{
+    console.log('Conectado')
+  }
 });
+
 
 connection.end();
