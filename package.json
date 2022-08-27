@@ -4,7 +4,8 @@
   "description": "Sistema para la gestion y control de los alumnos, junto a sus materias",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "conexion": "nodemon BD/conexion.js",
+    "indexDB":"nodemon js/indexWithDB.js"
   },
   "keywords": [],
   "author": "Toledo-Camejo",
@@ -12,7 +13,10 @@
   "dependencies": {
     "express": "^4.18.1",
     "mysql": "^2.18.1",
-    "node": "^17.7.2",
+    "node": "^17.7.2"
+   
+  },
+  "devDependencies": {
     "nodemon": "^2.0.16"
   }
 }
