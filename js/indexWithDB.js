@@ -1,3 +1,3 @@
-const db =require('')
-x=db.addUser()
+const db =require('../BD/conexion')
+x=db.addUser
 console.log(x)

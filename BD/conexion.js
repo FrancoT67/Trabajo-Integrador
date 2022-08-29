@@ -82,5 +82,6 @@ function addUser(tabla,nombre,dni,curso,telefono,email,tipo){
 
 connection.end();
 
-//module.exports = addUser()
-  /*,removeUser,updateUser,showUser,addAdmin,removeAdmin,updateAdmin,showAdmin*/
+
+
+module.exports = addUser,removeUser,updateUser,showUser
