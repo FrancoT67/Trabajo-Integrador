@@ -1,5 +1,5 @@
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
+const mysql      = require('mysql');
+const connection = mysql.createConnection({
   host:'localhost',
   user:'root',
   database:'prueba',
@@ -29,31 +29,58 @@ connection.connect(function(error){
 
 
 
-function addUser(tabla,val2){
-  connection.query(`SELECT * FROM ${tabla}`,function(error, results,fields){
-    if(error){throw error}
-    results.forEach(result => {
-      x=result[`${val2}`]
-    });
+function showUser(tabla,val2,dni){
+  connection.query(`SELECT * FROM ${tabla} WHERE ${tabla}.${val2} = ${dni}`,function(error, results,fields){
+    if(error){
+      throw error
+    }else{
+      results.forEach(result => {
+        x=result[`${val2}`]
+      });
+    }
 
-    console.warn(x)
+    console.log(x)
   })
 }
-/* Calling the function `addUser` and passing in the arguments `'alumno'` and `'Nombre'`. */
-addUser('alumno','Nombre')
+
+showUser('usuario','Nombre',45089238)
 
 
-function removeUser(){}
-function updateUser(){}
-function showUser(){}
+function removeUser(tabla,dni){
+  connection.query(`DELETE FROM ${tabla} WHERE ${tabla}.${dni} = ${dni}`,function(error,results,fields){
+    if(error){
+      console.log(`el error es: ${error}`)
+    }else{
+      console.log(`se eliminaron los datos de los campos: ${fields}`)
+    }
+  })
+}
+removeUser('usuario',45089238)
 
-function addAdmin(){}
-function removeAdmin(){}
-function updateAdmin(){}
-function showAdmin(){}
+function updateUser(tabla,nombre,dni,curso,telefono,email){
+  connection.query(`UPDATE ${tabla} SET nombre =${nombre}, dni = ${dni}, curso=${curso}, telefono=${telefono},email=${email}`,function(error,results,fields){
+    if(error){
+      console.log(`el error es: ${error}`)
+    }else{
+      console.log(`se actualizaron los datos de los campos: ${fields}`)
+    }
+  })
+}
+function addUser(tabla,nombre,dni,curso,telefono,email,tipo){
+  connection.query(`INSERT INTO ${tabla} (nombre,dni,curso,telefono,email,tipo) VALUES (${nombre},${dni},${curso},${telefono},${email},${tipo})`,function(error,results,fields){
+    if(error){
+      console.log(`el error es: ${error}`)
+    }else{
+      results.forEach(result => {
+        console.log(`Se agrego el usuario : ${result}[${nombre}]`)
+      });  
+    }
+  })
+}
+
 
 
 connection.end();
 
-module.exports = addUser()
+//module.exports = addUser()
   /*,removeUser,updateUser,showUser,addAdmin,removeAdmin,updateAdmin,showAdmin*/
