@@ -11,10 +11,19 @@
   "author": "Toledo-Camejo",
   "license": "ISC",
   "dependencies": {
+    "i": "^0.3.7",
     "mysql": "^2.18.1",
     "node": "^17.7.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrancoT67/Trabajo-Integrador.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FrancoT67/Trabajo-Integrador/issues"
+  },
+  "homepage": "https://github.com/FrancoT67/Trabajo-Integrador#readme"
 }

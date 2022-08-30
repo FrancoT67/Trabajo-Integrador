@@ -35,13 +35,14 @@ let curso = undefined
 let telefono = undefined
 let email = undefined
 
-const showUser = (tabla,val2,dni) => {
-  connection.query(`SELECT * FROM ${tabla} WHERE ${tabla}.dni = ${dni}`,function(error, results,fields){
+const showUser = (tabla,val1,val2,dni) => {
+  connection.query(`SELECT ${val1}, ${val2} FROM ${tabla} WHERE ${tabla}.dni = ${dni}`,function(error, results,fields){
     if(error){
       throw error
     }else{
       results.forEach(result => {
-        x = result[`${val2}`]
+       
+        return result
       });
       console.log(x)
     }
@@ -60,23 +61,21 @@ function removeUser(tabla,dni){
   })
 }
 
-function updateUser(tabla,nombre,dni,curso,telefono,email){
-  connection.query(`UPDATE ${tabla} SET nombre =${nombre}, dni = ${dni}, curso=${curso}, telefono=${telefono},email=${email} WHERE ${tabla}.dni = ${dni}`,function(error,results){
+function updateUser(tabla,nombre,dni,curso,telefono,email,tipo,password){
+  connection.query(`UPDATE ${tabla} SET nombre="${nombre}", dni = ${dni}, curso="${curso}", telefono=${telefono},email="${email}", tipo="${tipo}",password="${password}" WHERE ${tabla}.dni = ${dni}`,function(error,results,fields){
     if(error){
       console.log(`el error es: ${error}`)
     }else{
-      console.log(`se actualizaron los datos de los campos: ${results}`)
+      console.log('se actualziaron todos los datos')
     }
   })
 }
-function addUser(tabla,nombre,dni,curso,telefono,email,tipo){
-  connection.query(`INSERT INTO ${tabla} (nombre,dni,curso,telefono,email,tipo) VALUES (${nombre},${dni},${curso},${telefono},${email},${tipo})`,function(error,results,fields){
+function addUser(tabla,nombre,dni,curso,telefono,email,tipo,usuario,password){
+  connection.query(`INSERT INTO ${tabla} (nombre,dni,curso,telefono,email,tipo,usuario,password) VALUES ("${nombre}",${dni},"${curso}",${telefono},"${email}","${tipo}","${usuario}","${password}")`,function(error,results,fields){
     if(error){
       console.log(`el error es: ${error}`)
     }else{
-      results.forEach(result => {
-        console.log(`Se agrego el usuario : ${result}[${nombre}]`)
-      });  
+      console.log(`se agrego el usuario ${usuario}`)
     }
   })
 }
