@@ -4,7 +4,7 @@
   "description": "Sistema para la gestion y control de los alumnos, junto a sus materias",
   "main": "index.js",
   "scripts": {
-    "conexion": "nodemon BD/conexion.js",
+    "conexion": "nodemon js/conexion.js",
     "indexDB": "nodemon js/indexWithDB.js"
   },
   "keywords": [],
