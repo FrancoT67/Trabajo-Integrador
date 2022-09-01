@@ -11,12 +11,20 @@
     <body>
         <div class="cuadroBlanco">
             <table class="libreta">
-                <tr>
-                    <td>Materia</td>
-                    <td>Promedio</td>
-                    <td>Estado</td>
-                </tr>
-                   
+                    <tr>
+                        <td scope="col">Materia</td>
+                        <td scope="col">Promedio</td>
+                        <td scope="col">Estado</td>
+                    </tr>
+                    <!--el div de abajo se saca y funciona con una sola materia-->
+                    <div class="contenedorMaterias">
+                        <tr class="materias">
+                            <td class="nombre"></td>
+                            <td class="nota"></td>
+                            <td class="estado"></td>
+                        </tr>
+                    </div>
+                    
             </table>
             <button class="button" type="burron" onclick="inspectMatter()">ACTUALIZAR</button>
         </div>
