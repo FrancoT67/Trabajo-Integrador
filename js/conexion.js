@@ -1,4 +1,5 @@
-const mysql = require('mysql');
+const mysql = require ('mysql');
+
 const connection = mysql.createConnection({
   host:'localhost',
   user:'root',
@@ -32,15 +33,11 @@ connection.connect(function(error){
 //updateUser('alumno','pedro',24459789,'2C',3547456987,'pedroemail@gmail.com','alumno','pepe123','pepe456')
 //removeUser('alumno',24459789)
 
-let tabla = undefined
-let nombre = undefined
-let dni = undefined
-let curso = undefined
-let telefono = undefined
-let email = undefined
 
-const showUser = (tabla,val1,val2,dni) => {
-  connection.query(`SELECT ${val1}, ${val2} FROM ${tabla} WHERE ${tabla}.dni = ${dni}`,function(error, results,fields){
+
+
+const showUser = (tabla,val1,val2) => {
+  connection.query(`SELECT * FROM ${tabla} WHERE alumno.usuario = '${val1}' and alumno.password='${val2}';`,function(error, results,fields){
     if(error){
       throw error
     }else{

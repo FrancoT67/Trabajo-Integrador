@@ -1,5 +1,18 @@
 {
     "recommendations": [
-        "MS-CEINTL.vscode-language-pack-es"
+        "ms-ceintl.vscode-language-pack-es",
+        "adpyke.codesnap",
+        "dracula-theme.theme-dracula",
+        "usernamehw.errorlens",
+        "ecmel.vscode-html-css",
+        "formulahendry.auto-close-tag",
+        "aliariff.auto-add-brackets",
+        "zignd.html-css-class-completion",
+        "ritwickdey.liveserver",
+        "pkief.material-icon-theme",
+        "mintlify.document",
+        "ionutvmi.path-autocomplete",
+        "christian-kohler.path-intellisense",
+        "wayou.vscode-todo-highlight"
     ]
 }

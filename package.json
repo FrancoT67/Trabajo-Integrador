@@ -2,7 +2,8 @@
   "name": "sistemadegestiondealumnos",
   "version": "0.5.0",
   "description": "Sistema para la gestion y control de los alumnos, junto a sus materias",
-  "main": "index.js",
+  "type": "commonjs",
+  "main": "indexWithDB",
   "scripts": {
     "conexion": "nodemon js/conexion.js",
     "indexDB": "nodemon js/indexWithDB.js"
