@@ -7,18 +7,29 @@ let admins=[
 
 
 /* Creating an array of objects. */
-let alumnos=[
-    {
-        user:'pepe1',
+let alumnos=[{
+        user:'pepe',
         pass:'pepe1',
         name:'pepe alberto',
-        dni:'45892487',
+        dni:'45089238',
         curso:'5A',
         telefono:'0658145',
         correo:'pepe1@gmail.com',
-        matters:[{name:'matematica',note:6.20,state:'Aprobado'},{name:'lengua',note:5.7,state:'Desaprobado'}]
-    }];
+        matters:[{name:'matematica',note:2.20,state:'Aprobado'},{name:'lengua',note:5.99,state:'Desaprobado'}]
+    },
+    {
+        user:'juan',
+        pass:'juan1',
+        name:'juan alberto',
+        dni:'45089239',
+        curso:'4A',
+        telefono:'0658145',
+        correo:'juan1@gmail.com',
+        matters:[{name:'matematica',note:2.20,state:'Aprobado'},{name:'lengua',note:5.99,state:'Desaprobado'}]
+    }
+];
 
+let matters=[{curso:'6B',materia:'lengua',profesor:'Sosa Natalia'}]
 
 
 
@@ -72,10 +83,16 @@ const createUser = () =>{
  */
 
 const createMatter = () =>{
-    let matterName = document.querySelector('.matterName').value
-    let matterDivision = document.querySelector('.matterDivision').value
-    matters.push({names:matterName,divisions:matterDivision});
-    alert('Materia creada')
+    let matterName = document.querySelector('.materia').value
+    let matterDivision = document.querySelector('.curso').value
+    let profesorName = document.querySelector('.profesor').value
+    if(matterName.length === 0 || matterDivision.length === 0 || profesorName.length === 0){
+        alert('complete todos los campos por favor...')
+    }else{
+        matters.push({curso:matterDivision,materia:matterName,profesor:profesorName});
+        console.log(matters)
+        alert('Materia creada')
+    }
 }
 
 
@@ -83,19 +100,27 @@ const createMatter = () =>{
  * It takes the values of the inputs and if the userDni is equal to the dni of the object in the array,
  * it pushes the values of the inputs to the array.
  */
-const addNoteForAlumno = () =>{
-    let userName = document.querySelector('.alumnoName').value;
-    let userDNI = document.querySelector('.userDNI').value
-    let matter = document.querySelector('.matterName').value;
-    let note = document.querySelector('.matterNote').value;
-    if((userDNI === alumnos.find(element => element === alumnos.dni))){
-        if(note >= 5.99){
-            alumno.matters.push({name:matter,note:note,state:'Aprobado'})
-        }else{
-            alumno.matters.push({name:matter,note:note,state:'Desaprobado'})
-        }
+const addNote = () =>{
+    let userName = document.querySelector('.nombre').value;
+    let userDNI = document.querySelector('.dni').value;
+    let curso = document.querySelector('.curso').value;
+    let matter = document.querySelector('.materia').value;
+    let note = document.querySelector('.nota').value;
+    if(userName.length === 0 || userDNI.length === 0 || curso.length === 0 || matter.length === 0 || note.length === 0){
+        alert('Complete todos los campos por favor...')
     }else{
-        alert('datos incorrectos o alumno no existente')
+        if(alumnos.find(item=>item.dni === userDNI)){
+            if(note>5.99){
+                console.log(alumnos['matters'])
+                alumnos['matters'].push({name:matter,note:note,state:'aprobado'})
+                alert('Notas agregadas')
+            }else{
+                alumnos['matters'].push({name:matter,note:note,state:'desaprobado'})
+                alert('Notas agregadas')
+            }
+        }else{
+            alert('Datos Incorrectos, revise los datos..')
+        }
     }
 }
 
@@ -103,56 +128,57 @@ const addNoteForAlumno = () =>{
 
 /* mostrar todas las materias,si tiene 5.99 o menos Desaprobado(pintar en rojo)*/ 
 
+const nameMatter = document.querySelector('.nombre')
+const noteMatter= document.querySelector('.nota')
+const stateMatter= document.querySelector('.estado')
+const materias = document.querySelector('.materias')
+const divContenerdor = document.querySelector('.libreta')
+const td=document.createElement('td')
+const tr=document.createElement('tr')
+
 const inspectMatter = () =>{
-    const libreta = document.querySelector('.libreta')
-    let Tr = document.createElement('tr');
-    let td = document.createElement('td');
-    for(let i=0;i<10;i++){
-        tr
-        Tr=td.innerHTML=`${i}`
-    }
-    libreta.innerHTML=`${Tr}`
-    
+    alumnos.forEach(alumno => {
+        alumno.matters.forEach(matter=>{
+            for(i in matter){
+                console.log(matter[i])
+                if(matter.note>5.99){
+                    tr.appendChild(td)
+                    divContenerdor.appendChild(tr)
+                    materias.classList.add('materias','aprobado')
+                    nameMatter.innerHTML = matter[i].name
+                    noteMatter.innerHTML = matter.note
+                    stateMatter.innerHTML = matter.state
+                }else{
+                    materias.classList.add('materias','desaprobado')
+                    nameMatter.innerHTML = matter.name
+                    noteMatter.innerHTML = matter.note
+                    stateMatter.innerHTML = matter.state
+                }
+            }
+        })
+    }); 
+}
+
+
+
+
+
+const searchMatter = () =>{
+    let materias=document.querySelector('.busqueda').value;
+    let tabla=document.querySelector('.resultados')
+    matters.forEach(matter => {
+        if(materias === matter.materia){
+            tabla.innerHTML=`<td>${matter.materia}</td>
+            <td>${matter.curso}</td>
+            <td>${matter.profesor}</td>`
+        }
+        
+        
+    });
 
 }
 
 
-// const nameMatter = document.querySelector('.nombre')
-// const noteMatter= document.querySelector('.nota')
-// const stateMatter= document.querySelector('.estado')
-// const materias = document.querySelector('.materias')
-// const divContenerdor = document.querySelector('.contenedorMaterias')
-
-// const inspectMatter = () =>{
-//     alumnos.forEach(alumno => {
-//         alumno.matters.forEach(matter => {
-//            if(matter.note<= 5.99){
-//             materias.classList.add('materias','Desaprobado')
-//             nameMatter.innerHTML = matter.name
-//             noteMatter.innerHTML = matter.note
-//             stateMatter.innerHTML = 'Desaprobado'
-//            }else{
-//             materias.classList.add('materias','Aprobado')
-//             nameMatter.innerHTML = matter.name
-//             noteMatter.innerHTML = matter.note
-//             stateMatter.innerHTML = 'Aprobado'
-//            }
-//         })
-//      }); 
-//      //lo de arriba anda con una sola materias
-// // lo de abajo le falta revisar mucho
-//     // alumnos.forEach(alumno => {
-//     //     alumno.matters.forEach(matter => {
-//     //         const tr = document.createElement('tr')
-//     //         const td = document.createElement('td')
-//     //         divContenerdor.appendChild(tr)
-//     //         tr.appendChild(td)
-
-//     //     });
-        
-//     // });
-
-// }
 
 
 
@@ -160,33 +186,6 @@ const inspectMatter = () =>{
 
 
 
-
-
-
-
-
-
-
-
-
-// intento fallido de crear etiquetas desde JS
-
-//     if(matter.note <= 5.99){
-//         const td = document.createElement('td')
-//         const tr = document.createElement('tr')
-//         td.textContent=matter.name
-        
-//         tr.appendChild(td)
-//         matterState = 'Desaprobado'
-//     }else{
-//         matterState = 'Aprobado'
-//     }
-// });
-// // contenido.innerHTML += `<tr><td>${alumno.matters.name}</td>
-// // <td>${alumno.matters.note}</td>
-// // <td>${matterState}</td>
-// // </tr>`
-// contenido.appendChild(tr)
 
 
 

@@ -1,30 +1,32 @@
 {
-  "name": "sistemadegestiondealumnos",
-  "version": "0.5.0",
-  "description": "Sistema para la gestion y control de los alumnos, junto a sus materias",
-  "type": "commonjs",
-  "main": "indexWithDB",
+  "name": "trabajo-integrador",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "conexion": "nodemon js/conexion.js",
-    "indexDB": "nodemon js/indexWithDB.js"
-  },
-  "keywords": [],
-  "author": "Toledo-Camejo",
-  "license": "ISC",
-  "dependencies": {
-    "i": "^0.3.7",
-    "mysql": "^2.18.1",
-    "node": "^17.7.2"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.19"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FrancoT67/Trabajo-Integrador.git"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/FrancoT67/Trabajo-Integrador/issues"
   },
-  "homepage": "https://github.com/FrancoT67/Trabajo-Integrador#readme"
+  "homepage": "https://github.com/FrancoT67/Trabajo-Integrador#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "express-myconnection": "^1.0.4",
+    "express-session": "^1.17.3",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+
+  }
 }

@@ -10,50 +10,34 @@
     </head>
     <body>
         <div class="cuadroBlanco">
-            <script src="/js/index.js"></script>
-            
-            <form action="" method="post" target="_blank"> 
+        
+            <section class="busqueda"> 
          
-            <p>
          
-             Búsqueda de materia: <input type="search" name="busquedamateria" placeholder="Lengua,Matemática,Ing...">
+             <p>Búsqueda de materia: </p><input class="busqueda" placeholder="Lengua,Matemática,Ing...">
+             <button type="button" class="searchButton" onclick="searchMatter()">Buscar</button>
          
-             <input type="submit" value="Buscar">
          
-            </p>
-         
-            </form>
+            </section>
             <table>
-             <tr>
-                 <td>
-                     Materia
-                 </td>
-                  <td>
-                     Nota 1
-                 </td>
-                <td>
-                     Nota 2
-                 </td>
-               <td>
-                     Nota 3
-                 </td>
-                <tr>
-                 <td>
-                  -
-                 </td>
-                 <td>
-                   -
-                 </td>
-                 <td>
-                   -
-                 </td>
-                  <td>
-                   -
-                 </td>
-                <table> 
-        </div> 
-    <div class="Instituto"><p>Instituto Superior Blake South Collage</p></div>          
-    <a class="buttonBack"  href="homeUser.html">REGRESAR</a>           
+                <tr class="titulo">
+                    <td>
+                        Materia
+                    </td>
+                    <td>
+                        curso
+                    </td>
+                    <td>
+                        profesor
+                    </td>
+                </tr>
+                <tr class="resultados">
+                   
+                </tr>
+            <table> 
+        </div>           
+    <a class="buttonBack"  href="homeUser.html">REGRESAR</a>
+    <script src="/js/index.js"></script>           
     </body>
     
 </html>

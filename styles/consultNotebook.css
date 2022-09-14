@@ -28,16 +28,24 @@ body{
     background-color: whitesmoke;
     grid-row: 1;
     grid-column:1;
+
+    
+}
+
+
+.buttonBack{
+    margin-bottom: -21%;
+    margin-left: 35%;
+    margin-top: 15%;
+
 }
 
 .libreta{
     margin-top: 5%;
-    margin-left:5%;    
+    margin-left:0%;    
 }
 
-.libreta{
-    margin-left: -9%;
-}
+
 
 tr{
     margin-top: 15%;
@@ -49,15 +57,15 @@ td{
     padding-left: -150px;
 }
 
-.Desaprobado{
+.desaprobado{
     background-color: rgba(255, 0, 0, 0.37);
 }
-.Aprobado{
+.aprobado{
     background-color: rgba(3, 248, 3, 0.452);
 }
 
-.button{
-    margin: 8% 0% 10% 20%;
+.button, .backMenu{
+    margin: 8% 0% 10% 1%;
     padding: 1.3em 3em;
     font-size: 12px;
     text-transform: uppercase;

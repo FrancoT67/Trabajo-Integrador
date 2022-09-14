@@ -1,4 +1,4 @@
-const mysql = require ('mysql');
+const mysql =need('mysql');
 
 const connection = mysql.createConnection({
   host:'localhost',
@@ -20,24 +20,26 @@ const connection = mysql.createConnection({
 
 });
 
-connection.connect(function(error){
-  if(error){
-    throw error;
-  }else{
-    console.log('Conectado')
-  }
-});
+function conexion(){
+  connection.connect(function(error){
+    if(error){
+      throw error;
+    }else{
+      console.log('Conectado')
+    }
+  });
+}
 
 //addUser('alumno','pedro',24459789,'4C',3547456987,'pedroemail@gmail.com','alumno','pepe123','pepe456')
-//showUser('alumno','nombre','curso',24459789)
+//showUser('alumno','pepe123','pepe456')
 //updateUser('alumno','pedro',24459789,'2C',3547456987,'pedroemail@gmail.com','alumno','pepe123','pepe456')
 //removeUser('alumno',24459789)
 
 
 
 
-const showUser = (tabla,val1,val2) => {
-  connection.query(`SELECT * FROM ${tabla} WHERE alumno.usuario = '${val1}' and alumno.password='${val2}';`,function(error, results,fields){
+function showUser(tabla,val1,val2){
+  connection.query(`SELECT * FROM ${tabla} WHERE alumno.${val1} = '${val1}';`,function(error, results,fields){
     if(error){
       throw error
     }else{
@@ -49,7 +51,15 @@ const showUser = (tabla,val1,val2) => {
     }
   })
 }
-
+ function login(){
+  let a=document.querySelector('.user')
+  let b=document.querySelector('.pass')
+  let user= showUser('alumno',`${a}`)
+  let pass= showUser('alumno',`${b}`)
+  if( (a === user)&&(b=pass)){
+    console.log(user)
+  }
+ }
 
 
 
@@ -87,14 +97,8 @@ function addUser(tabla,nombre,dni,curso,telefono,email,tipo,usuario,password){
 }
 
 
+export {conexion};
 
 
 
 
-
-
-
-exports.showUser = showUser;
-exports.addUser = addUser;
-exports.removeUser = removeUser;
-exports.updateUser = updateUser;
